@@ -33,7 +33,7 @@ langsmith==0.1.85
 lxml==5.2.2
 MarkupSafe==2.1.5
 marshmallow==3.21.3
-milvus-lite==2.4.8
+# milvus-lite==2.4.8
 multidict==6.0.5
 mypy-extensions==1.0.0
 numpy==1.26.4

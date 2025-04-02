@@ -1,0 +1,17 @@
+{
+  "id":"excel_generator_agent",
+  "name":"excel_generator_agent",
+  "title":"Excel生成智能体",
+  "description":"Excel生成智能体，可以根据用户需求和输入，分析提取输入中的结构化信息，并生成Excel文件",
+  "keywords": ["提取结构化信息","Excel生成"],
+  "manual":"http://wechat.com/excel_generator.html",
+  "prompt": "",
+  "model": "qwen2.5-32b-instruct",
+  "params":[
+    { "title":"task", "name":"task", "type":"string", "notnull":true, "description": "需求任务", "defaultValue":"" },
+    { "title":"data", "name":"data", "type":"txt", "notnull":true, "description": "待提取的文本输入", "defaultValue":"" }
+  ],
+  "results":[
+    { "title":"result", "name":"result", "type":"file", "notnull":true, "description":"生成的Excel文件的URL地址", "defaultValue":"" }
+  ]
+}

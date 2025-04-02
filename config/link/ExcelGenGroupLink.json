@@ -1,0 +1,11 @@
+{
+  "group": "ExcelGenGroup",
+  "name": "ExcelGenGroup",
+  "links": [
+    {
+      "source": "start",
+      "target": "ExcelGenGroup/excel_generator_agent",
+      "type": "hard"
+    }
+  ]
+}

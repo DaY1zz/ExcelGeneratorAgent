@@ -1,0 +1,19 @@
+{
+  "id":"ExcelGenGroup",
+  "name":"ExcelGenGroup",
+  "type":"agent",
+  "title":"Excel生成智能体组",
+  "description":"Excel生成智能体组",
+  "prompt": "",
+  "keywords": ["Excel生成智能体组"],
+  "reference":"http://xxx/Scheduling/机器ID",
+  "manual":"Excel生成智能体组",
+  "agents": ["excel_generator_agent"],
+  "params":[
+    { "title":"task", "name":"task", "type":"string", "notnull":true, "description": "任务", "defaultValue":"" },
+    { "title":"data", "name":"data", "type":"string", "notnull":true, "description": "待提取的文本输入", "defaultValue":"" }
+  ],
+  "results":[
+    { "title":"result", "name":"result", "type":"file", "notnull":true, "description":"生成的Excel文件的URL地址", "defaultValue":"" }
+  ]
+}

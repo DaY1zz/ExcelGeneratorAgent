@@ -1,0 +1,30 @@
+variables:
+  GIT_DEPTH: 0
+  APP_NAME: "$CI_PROJECT_NAME"
+
+stages:
+  - deploy
+
+python_backend_deploy:
+  stage: deploy
+  script:
+    - echo "=============== 后端 Python 服务部署任务 ==============="
+
+    # 压缩并上传
+    - zip -r $APP_NAME.zip ./*
+    - scp -i ~/.ssh/id_rsa $APP_NAME.zip root@120.27.248.186:/home/agent/agentService/
+
+    # 解压并清理旧目录
+    - ssh -i ~/.ssh/id_rsa root@120.27.248.186 "cd /home/agent/agentService && rm -rf $APP_NAME"
+    - ssh -i ~/.ssh/id_rsa root@120.27.248.186 "cd /home/agent/agentService && unzip $APP_NAME.zip -d $APP_NAME"
+
+    # 启动前：检查并释放端口（10109）
+    - ssh -i ~/.ssh/id_rsa root@120.27.248.186 "ss -ltnp | grep ':10109' && echo '>>> 检测到端口被占用，准备终止进程' && PID=\$(ss -ltnp | grep ':10109' | awk -F 'pid=' '{print \$2}' | awk -F ',' '{print \$1}') && kill -9 \$PID || echo '>>> 端口空闲'"
+
+    - echo "=============== 后端 Python 服务部署成功 ==============="
+
+  only:
+    - main
+  tags:
+    - agent
+
