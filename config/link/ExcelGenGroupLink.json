@@ -6,6 +6,16 @@
       "source": "start",
       "target": "ExcelGenGroup/excel_generator_agent",
       "type": "hard"
+    },
+    {
+      "source": "ExcelGenGroup/excel_generator_agent",
+      "target": "SearchGroup",
+      "type": "ext"
+    },
+    {
+      "source": "ExcelGenGroup/excel_generator_agent",
+      "target": "ReasoningGroup",
+      "type": "ext"
     }
   ]
 }

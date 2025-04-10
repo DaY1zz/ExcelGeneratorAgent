@@ -10,10 +10,44 @@
   "manual":"Excel生成智能体组",
   "agents": ["excel_generator_agent"],
   "params":[
-    { "title":"task", "name":"task", "type":"string", "notnull":true, "description": "任务", "defaultValue":"" },
-    { "title":"data", "name":"data", "type":"string", "notnull":true, "description": "待提取的文本输入", "defaultValue":"" }
+    { "title":"task",
+      "name":"task",
+      "type":"string",
+      "notnull":true,
+      "description": "任务需求",
+      "defaultValue":""
+    },
+    { "title":"data",
+      "name":"data",
+      "type":"txt",
+      "notnull":true,
+      "description": "用户所给出的文本信息（生成Excel所需的详细上下文信息，内容越丰富越好）",
+      "defaultValue":""
+    }
   ],
   "results":[
-    { "title":"result", "name":"result", "type":"file", "notnull":true, "description":"生成的Excel文件的URL地址", "defaultValue":"" }
+    {
+      "title": "flag",
+      "name": "flag",
+      "type": "string",
+      "notnull": true,
+      "description": "生成是否成功",
+      "defaultValue": "True"
+    },
+    {
+      "title": "message",
+      "name": "message",
+      "type": "string",
+      "notnull": false,
+      "description": "错误或提示信息",
+      "defaultValue": ""
+    },
+    { "title":"excel_url",
+      "name":"excel_url",
+      "type":"file",
+      "notnull":true,
+      "description":"生成的Excel文件的URL地址",
+      "defaultValue":""
+    }
   ]
 }
